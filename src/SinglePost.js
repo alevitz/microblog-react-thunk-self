@@ -23,7 +23,7 @@ function SinglePost() {
     if(loadingPost){
       getPost();
     }
-  }, [dispatch, postId, loadingPost]);
+  }, [dispatch, postId,loadingPost]);
 
   
   
@@ -43,12 +43,12 @@ function SinglePost() {
     <div className="SinglePost">
         { 
         
-      post
+      post.comments
         ?
          editing ?
           <PostForm post={post} postId={postId} editing={editing} setEditing={setEditing} />
          : <PostView setEditing={setEditing} post={post} />
-        : <Redirect to='/' />}
+        : <p>Loading Post</p>
 
       }
         </div>
