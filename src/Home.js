@@ -7,9 +7,8 @@ import { useDispatch } from 'react-redux';
 function Home() {
   
   const dispatch = useDispatch();
-  console.log("In HOME!")
   useEffect(() => {
-      function getAllPosts() {
+      async function getAllPosts() {
       dispatch(getAllPostsFromAPI());
     }
     getAllPosts();
@@ -17,6 +16,7 @@ function Home() {
 
 
   const store = useSelector(store => store);
+  console.log("STORE", store)
   const singlePost = Object.entries(store).map(p => <TitleList post={p} key={p[0]} />);
   //singlePost to object
   return (
